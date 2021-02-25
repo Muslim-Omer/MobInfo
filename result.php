@@ -1,3 +1,7 @@
+<?php
+  include('PHP/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,77 +14,93 @@
   <div class="container">
 	<table>
 
-    <thead>
-      <tr>
-        <th>NAME</th>
-        <td>Iphone 8 Plus</td>
-				<td>2017</td>
-      </tr>
-    </thead>
+    <?PHP
 
-		<tbody>
-			<tr>
-				<th>DISPLAY</th>
-				<td>Size</td>
-				<td>5.5 inches, 83.4 cm2 (~67.4% screen-to-body ratio)</td>
+      $sql = "SELECT * FROM mobiles_info_tb limit 1";
+      $result = $conn->query($sql);
 
-			</tr>
-			<tr>
-				<th>PLATFORM</th>
-				<td>CPU</td>
-				<td>Hexa-core (2x Monsoon + 4x Mistral)</td>
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+            echo "<thead>
+                    <tr>
+                      <th>NAME</th>".
+                      "<td>".$row['product_name']."</td>".
+              				"<td>".$row['year']."</td>".
+                    "</tr>".
+                 "</thead>";
 
-			</tr>
-      <tr>
-        <th></th>
-        <td>GPU</td>
-        <td>Apple GPU (three-core graphics)</td>
+              echo "<tbody>
+                      <tr>
+                        <th>DISPLAY</th>".
+                        "<td>Size</td>".
+                				"<td>".$row['size']."</td>".
+                      "</tr>";
 
-      </tr>
-			<tr>
-				<th>MEMORY</th>
-				<td>Internal</td>
-				<td>64GB 3GB RAM, 128GB 3GB RAM, 256GB 3GB RAM</td>
-			</tr>
+              echo "<tr>
+                        <th>PLATFORM</th>".
+                        "<td>CPU</td>".
+                				"<td>".$row['cpu']."</td>".
+                    "</tr>";
 
-			<tr>
-				<th>MAIN CAMERA</th>
-				<td>Dual</td>
-				<td>12 MP, f/1.8, 28mm (wide), PDAF, OIS</td>
-			</tr>
+              echo "<tr>
+                        <th></th>".
+                        "<td>GPU</td>".
+                				"<td>".$row['gpu']."</td>".
+                    "</tr>";
 
-      <tr>
-        <th></th>
-        <td>Video</td>
-        <td>4K@24/30/60fps, 1080p@30/60/120/240fps</td>
-      </tr>
+              echo "<tr>
+                        <th>MEMORY</th>".
+                        "<td>Internal</td>".
+                				"<td>".$row['internal_memory']."</td>".
+                    "</tr>";
 
-			<tr>
-				<th>SELFIE CAMERA</th>
-				<td>Single</td>
-				<td>7 MP, f/2.2, 32mm (standard)</td>
-			</tr>
+              echo "<tr>
+                        <th>MAIN CAMERA</th>".
+                        "<td>Dual</td>".
+                	 			"<td>".$row['dual_camera']."</td>".
+                   "</tr>";
 
-      <tr>
-        <th></th>
-        <td>Video</td>
-        <td>1080p@30fps</td>
-      </tr>
+              echo "<tr>
+                        <th></th>".
+                        "<td>Video</td>".
+                				"<td>".$row['video_camera']."</td>".
+                   "</tr>";
 
-      <tr>
-        <th>BATTERY</th>
-        <td>Type</td>
-        <td>Li-Ion 2691 mAh, non-removable (10.28 Wh)</td>
-      </tr>
+              echo "<tr>
+                        <th>SELFIE CAMERA</th>".
+                        "<td>Single</td>".
+                				"<td>".$row['single_selfie']."</td>".
+                   "</tr>";
 
-      <tr>
-        <th>Image</th>
-        <td>View Image In this Link</td>
-        <td><a href="https://www.google.com/search?q=iphone+x+info&safe=active&sxsrf=ALeKk01Oz3-Y7bKGehIje9KxMIToltzMIQ:1614183260708&source
-          =lnms&tbm=isch&sa=X&ved=2ahUKEwjA_-ye9YLvAhVSyoUKHcM9Bn0Q_AUoAXoECA8QAw&biw=1536&bih=722#imgrc=ZIuKAmz6i-AIkM">Click Here</a></td>
-      </tr>
+              echo "<tr>
+                        <th></th>".
+                        "<td>Video</td>".
+                				"<td>".$row['video_selfie']."</td>".
+                   "</tr>";
 
-		</tbody>
+              echo "<tr>
+                        <th>BATTERY</th>".
+                        "<td>Type</td>".
+                				"<td>".$row['type_battery']."</td>".
+                   "</tr>";
+
+              echo "<tr>
+                        <th>Image</th>".
+                        "<td>View Image In this Link</td>".
+                				"<td>"."<a href=\"".$row['image_link']."\" target=\"_blank\" a>Click Here</a>"."</td>".
+                   "</tr>";
+
+              echo "</tbody>";
+
+          }
+
+      }else{
+        echo "0 results";
+      }
+
+    ?>
+
 	</table>
 </div>
 
