@@ -89,40 +89,47 @@
       }
       }
     </style>
+
   </head>
+
   <body>
     <div class="main-block">
 
     <center>
-      <form action="/">
+
+      <form action="PHP/add_product.php" method="post">
         <h1>Add Product</h1>
+
         <div class="info">
 
-          <input class="fname" type="text" name="product_name" placeholder="Product Name">
-          <input class="fname" type="text" name="lunch" placeholder="Lunch (years)">
+          <input class="fname" type="text" name="product_name" placeholder="Product Name" required>
+          <input class="fname" type="text" name="year" placeholder="Lunch (years)" required>
 
-          <input class="fname" type="text" name="size" placeholder=" Size">
+          <input class="fname" type="text" name="size" placeholder=" Size" required>
 
-          <input class="fname" type="text" name="cpu" placeholder=" CPU">
-          <input class="fname" type="text" name="gpu" placeholder=" GPU">
+          <input class="fname" type="text" name="cpu" placeholder=" CPU" required>
+          <input class="fname" type="text" name="gpu" placeholder=" GPU" required>
 
-          <input class="fname" type="text" name="internal_memory" placeholder=" internal Memory">
+          <input class="fname" type="text" name="internal_memory" placeholder=" internal Memory" required>
 
-          <input class="fname" type="text" name="dual_camera" placeholder=" Dual Camera">
-          <input class="fname" type="text" name="video_camera" placeholder=" Video Camera">
+          <input class="fname" type="text" name="dual_camera" placeholder=" Dual Camera" required>
+          <input class="fname" type="text" name="video_camera" placeholder=" Video Camera" required>
 
-          <input class="fname" type="text" name="single_selfie" placeholder=" single selfie">
-          <input class="fname" type="text" name="video_selfie" placeholder=" Video Selfie">
+          <input class="fname" type="text" name="single_selfie" placeholder=" single selfie" required>
+          <input class="fname" type="text" name="video_selfie" placeholder=" Video Selfie" required>
 
-          <input class="fname" type="text" name="battry" placeholder=" Battry Type">
+          <input class="fname" type="text" name="type_battery" placeholder=" Battry Type" required>
 
-          <input class="fname" type="text" name="picture" placeholder="Link Picture">
+          <input class="fname" type="text" name="image_link" placeholder="Link Picture" required>
 
         </div>
 
-        <button type="submit" name="add_product" href="/">Add Product</button>
+        <button type="submit" name="submit">Add Product</button>
       </form>
+
     </center>
     </div>
+
   </body>
+
 </html>
