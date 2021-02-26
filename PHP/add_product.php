@@ -30,6 +30,9 @@
 
      if ($conn->query($sql) === TRUE) {
        echo "New record created successfully";
+       echo "<h5><a href='add_product.php'>Add More Product</a></h5>";
+       echo "<h5><a href='edit_product.php'>Back To Edit Product</a></h5>";
+
      } else {
        echo "Error: " . $sql . "<br>" . $conn->error;
      }
