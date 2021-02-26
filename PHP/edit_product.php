@@ -1,3 +1,10 @@
+<style media="screen">
+a{
+  text-decoration: none;
+  color: black;
+}
+</style>
+
 <?php
   include('connection.php');
   if (isset($_GET['id'])) {
@@ -46,12 +53,13 @@
             ";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
+      $message = "Record updated successfully";
+      echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    echo "<h1><a href='products_list.php'>Products List</a></h1>";
+    echo "<h1><a href='products_list.php'>Back To products List</a></h1>";
 
   } else {
       // SELECT
