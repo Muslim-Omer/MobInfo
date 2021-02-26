@@ -1,3 +1,9 @@
+<style media="screen">
+a{
+  text-decoration: none;
+  color: black;
+}
+</style>
 <?php
   include('connection.php');
 
@@ -29,9 +35,10 @@
                      '$single_selfie', '$video_selfie', '$type_battery', '$image_link')";
 
      if ($conn->query($sql) === TRUE) {
-       echo "New record created successfully";
-       echo "<h5><a href='add_product.php'>Add More Product</a></h5>";
-       echo "<h5><a href='edit_product.php'>Back To Edit Product</a></h5>";
+       $message = "Added One Record";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+
+       echo "<h3><a href='add_product.php'>Add More Product</a></h3>";
 
      } else {
        echo "Error: " . $sql . "<br>" . $conn->error;

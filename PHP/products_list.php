@@ -8,15 +8,36 @@ include('connection.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products List</title>
+
     <style>
-        tr th, tr td {
-            padding: 5px;
-        }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,td{
+        text-align: left;
+        padding: 12px;
+      }
+
+      tr:nth-child(even){background-color: #f2f2f2}
+
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
     </style>
+
 </head>
 <body>
     <h1>Products List</h1>
-    <h2><a href='add_product.php'>Add product</a></h2>
+    <button type="button" name="button"><a href='add_product.php'>Add New Product</a></button>
+    <button type="button" name="button"><a href='delete_all.php'>Delete All Records</a></button>
+
     <table border="1">
         <thead>
             <tr>
@@ -69,8 +90,8 @@ if ($result->num_rows > 0) {
             echo "<td>".$row['video_selfie']."</td>";
             echo "<td>".$row['type_battery']."</td>";
             echo "<td>".$row['image_link']."</td>";
-            echo "<td><a href=\"edit_product.php?id=".$row['id']."\">EDIT</a></td>";
-            echo "<td><a href=\"edit_product.php?id=".$row['id']."\">X</a></td>";
+            echo "<td><a href=\"edit_product.php?id=".$row['id']."\"><img src=\"../img/pencil.png\" alt=\"Edit\" width=\"50\" height=\"50\"></a></td>";
+            echo "<td><a href=\"delete_product.php?id=".$row['id']."\"><img src=\"../img/trash.png\" alt=\"Edit\" width=\"50\" height=\"50\"></a></a></td>";
         echo "<tr/>";
     }
 } else {
