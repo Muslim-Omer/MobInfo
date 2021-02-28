@@ -9,7 +9,7 @@ a{
   include('connection.php');
   if (isset($_GET['id'])) {
     $id = $_GET['id'];
-}
+  }
 
   // EDIT
   if(isset($_POST['submit'])){
@@ -56,7 +56,7 @@ a{
       $message = "Record updated successfully";
       echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     echo "<h1><a href='products_list.php'>Back To products List</a></h1>";
@@ -113,9 +113,8 @@ a{
 
       </div>
 
-
-
       <button type="submit" name="submit">Edit Product</button>
+      
     </form>
 
   </center>

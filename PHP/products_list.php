@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+  include('connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,7 @@ include('connection.php');
     </style>
 
 </head>
+
 <body>
     <h1>Products List</h1>
     <button type="button" name="button"><a href='add_product.php'>Add New Product</a></button>
@@ -68,37 +69,41 @@ include('connection.php');
         </thead>
         <tbody>
 
-<?php
-$sql = "SELECT * FROM mobiles_info_tb";
-$result = $conn->query($sql);
+  <?php
+    $sql = "SELECT * FROM mobiles_info_tb";
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        ///
-        echo "<tr>";
-            echo "<td>".$row['id']."</td>";
-            echo "<td>".$row['product_name']."</td>";
-            echo "<td>".$row['year']."</td>";
-            echo "<td>".$row['size']."</td>";
-            echo "<td>".$row['cpu']."</td>";
-            echo "<td>".$row['gpu']."</td>";
-            echo "<td>".$row['internal_memory']."</td>";
-            echo "<td>".$row['dual_camera']."</td>";
-            echo "<td>".$row['video_camera']."</td>";
-            echo "<td>".$row['single_selfie']."</td>";
-            echo "<td>".$row['video_selfie']."</td>";
-            echo "<td>".$row['type_battery']."</td>";
-            echo "<td>".$row['image_link']."</td>";
-            echo "<td><a href=\"edit_product.php?id=".$row['id']."\"><img src=\"../img/pencil.png\" alt=\"Edit\" width=\"50\" height=\"50\"></a></td>";
-            echo "<td><a href=\"delete_product.php?id=".$row['id']."\"><img src=\"../img/trash.png\" alt=\"Edit\" width=\"50\" height=\"50\"></a></a></td>";
-        echo "<tr/>";
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          ///
+          echo "<tr>";
+              echo "<td>".$row['id']."</td>";
+              echo "<td>".$row['product_name']."</td>";
+              echo "<td>".$row['year']."</td>";
+              echo "<td>".$row['size']."</td>";
+              echo "<td>".$row['cpu']."</td>";
+              echo "<td>".$row['gpu']."</td>";
+              echo "<td>".$row['internal_memory']."</td>";
+              echo "<td>".$row['dual_camera']."</td>";
+              echo "<td>".$row['video_camera']."</td>";
+              echo "<td>".$row['single_selfie']."</td>";
+              echo "<td>".$row['video_selfie']."</td>";
+              echo "<td>".$row['type_battery']."</td>";
+              echo "<td>".$row['image_link']."</td>";
+              echo "<td><a href=\"edit_product.php?id=".$row['id']."\"><img src=\"../img/pencil.png\" alt=\"Edit\" width=\"50\" height=\"50\"></a></td>";
+              echo "<td><a href=\"delete_product.php?id=".$row['id']."\"><img src=\"../img/trash.png\" alt=\"Edit\" width=\"50\" height=\"50\"></a></a></td>";
+          echo "<tr/>";
+      }
+
+    } else {
+        echo "0 results";
     }
-} else {
-    echo "0 results";
-}
-?>
+
+  ?>
         </tbody>
     </table>
+
 </body>
+
 </html>
