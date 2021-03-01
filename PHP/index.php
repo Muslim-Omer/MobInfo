@@ -6,8 +6,10 @@
     $user_search = $_POST['search_box'];
 
     if(!empty($user_search)){
-      $sql = "SELECT * FROM `mobiles_info_tb` WHERE  product_name = 
-      '$user_search' LIMIT 1";
+
+      $user = trim($user_search);
+      $sql = "SELECT * FROM `mobiles_info_tb`WHERE  product_name =
+      '$user_search'LIMIT 1";
 
       $result = $conn->query($sql);
 
@@ -18,7 +20,8 @@
         }
 
       } else{
-        echo "<center> <h1> No Result </h1> </center>";
+        echo "<center> <h1> No Result Please Enter The Name Clearly<br>
+        Example: (iphone 8 plus) - (galaxy a6)</h1> </center>";
       }
 
     }
